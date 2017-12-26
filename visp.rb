@@ -1,9 +1,8 @@
 class Visp < Formula
   desc "Visual Servoing Platform library"
   homepage "https://visp.inria.fr"
-  url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.0.1.tar.gz"
-  sha256 "8aefd21f30dd4f6d210c59c28704f9e3adf874e3337571a3ae65a65946c94326"
-  revision 4
+  url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.1.0.tar.gz"
+  sha256 "2a1df8195b06f9a057bd4c7d987697be2fdcc9d169e8d550fcf68e5d7f129d96"
 
   bottle do
     sha256 "abadd9accf9e08e669aaec62c98c43302056e3ac58a67b8375de03a187fe7d64" => :sierra
@@ -16,6 +15,7 @@ class Visp < Formula
 
   depends_on "cmake"     => :build
   depends_on "gsl"       => :recommended
+  depends_on "eigen"     => :recommended
   depends_on "jpeg"      => :recommended
   depends_on "libdc1394" => :recommended
   depends_on "libpng"    => :recommended
@@ -43,6 +43,7 @@ class Visp < Formula
 
     args << "-DUSE_DC1394="       + arg_switch("libdc1394")
     args << "-DUSE_GSL="          + arg_switch("gsl")
+    args << "-DUSE_EIGEN3="       + arg_switch("eigen")
     args << "-DUSE_JPEG="         + arg_switch("jpeg")
     args << "-DUSE_OPENCV="       + arg_switch("opencv3")
     args << "-DUSE_PNG="          + arg_switch("libpng")
